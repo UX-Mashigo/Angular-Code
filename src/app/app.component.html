@@ -1,0 +1,10 @@
+
+
+  <span>Welcome {{message}}</span>
+  <app-employee-list></app-employee-list>
+  <app-employee-detail></app-employee-detail>
+  <app-test (childevent)="message=$event" [parentData]="name"></app-test>   <!--the $event is going to refer to 'hey codevolution' -->
+  <app-courses></app-courses>
+
+
+<router-outlet></router-outlet>

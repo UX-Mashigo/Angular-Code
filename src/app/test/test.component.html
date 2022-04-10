@@ -1,0 +1,50 @@
+<p>This is the beginning of test component</p>
+
+<!-- json pipe -->
+<h2>{{person | json}}</h2>
+
+
+<!-- number pipes -->
+<h2>{{5.678 | number:'1.2-3'}}</h2>
+<h2>{{5.678 | number:'3.4-5'}}</h2>
+<h2>{{5.678 | number:'3.1-2'}}</h2>
+
+<!-- percent pipes -->
+<h2>{{0.75 | percent}}</h2>
+
+<!-- currency pipes -->
+<h2>{{ 19.75 | currency }}</h2>
+<h2>{{99.90 | currency:'EUR'}}</h2>
+
+<!-- date pipes -->
+<h2>{{date | date:'short'}}</h2> <!--short format gives us only date and time -->
+<h2>{{date | date:'shortDate'}}</h2>
+<h2>{{date | date:'shortTime'}}</h2>
+<button (click)="fireEvent()">Send Event</button>
+<!-- end of date pipes -->
+
+<div *ngIf="displayName ;then thenBlock; else elseBlock" >Codevolution> </div>
+<ng-template #thenBlock>
+    <h2>Codevolution</h2>
+</ng-template>
+
+ <ng-template #elseBlock> <!--elseBlock is a reference to ng-template tag(which is a container to other elements that the *ngIf can use to properly add or remove blocks of html from the DOM) -->
+    <h2> hidden</h2>
+</ng-template>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">You picked the red color</div>
+    <div *ngSwitchCase="'yellow'">You picked the yellow color</div>
+    <div *ngSwitchCase="'green'">You picked the green color</div>
+    <div *ngSwitchDefault>Pick again</div>
+
+</div>
+
+<div *ngFor="let color of colors; index as i;first as f; even as e">
+   <h2> {{i}} {{f}} {{e}} {{color}}</h2>
+
+</div>
+
+ <h2 >{{"Hello " + name |slice:3:10}} <!-- name coming from the parent -->
+</h2>
+<p>The end of test component </p>
